@@ -175,6 +175,7 @@ export const connectFourModel = {
 
                     if (this.checkFour(row, col, 1, -1) === true) {
                         return player;
+
                     }
                 }
             }
