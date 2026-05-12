@@ -64,15 +64,19 @@ export const connectFourModel = {
 
     initBattlefield: function () {
         this.battlefield = [];
+        this.gameOver = false;
+        this.currentPlayerIndex = 0;
+        this.winningStones = [];
+
         for (let row = 0; row < this.rows; row++) {
             let currentRow = [];
-
             for (let col = 0; col < this.columns; col++) {
                 currentRow.push(null);
-
             }
             this.battlefield.push(currentRow);
         }
+        this.dispatchStoneInserted();
+        this.dispatchPlayerChange();
     },
 
 //TODO: The model should offer a method to insert a stone at a given column.

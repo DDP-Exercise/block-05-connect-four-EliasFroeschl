@@ -6,15 +6,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--TODO: Build the Markup for your Game. Don't forget to style it in a cascading stylesheet. -->
+<!--TODO: Build the Markup for your Game. Don't forget to style it in a cascading stylesheet. -->
+
+<div id="game-layout">
+    <div id="mario-figure" class="side-fighter"></div>
 
     <main id="game">
         <header id="game-header">
-            <h1>Mario vs. Browser</h1>
+            <h1>Mario vs. Bowser</h1>
             <p>Connect four to save Princess Peach.</p>
         </header>
-
-
 
         <section id="player-info">
             <p id="current-player">Current player: Mario</p>
@@ -22,16 +23,14 @@
         </section>
 
         <section id="column-buttons"></section>
+        <section id="battlefield"></section>
 
-        <section id="battelfield"></section>
-
-        <button id ="restart-button">Restart Game</button>
-
-
+        <button id="restart-button">Restart Game</button>
     </main>
 
+    <div id="bowser-figure" class="side-fighter"></div>
+</div>
 
-    <script type="module" src="js/controller.connectfour.js"></script>
-
+<script type="module" src="js/controller.connectfour.js"></script>
 </body>
 </html>
