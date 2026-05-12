@@ -39,9 +39,46 @@
  *     8-10 hours of concentrated work.
  *     Bratlsoft - 2026-04-29
  *******************************************************/
-
+import {connectFourModel} from "./model.connectfour.js";
+import {polishedView} from "./view.polished.js";
+import { consoleView } from "./view.console.js";
 
 //TODO: Create your controller-object. When initiated, it should boot
 //      the view (or views, if you decide to make a console-view).
 
+const connectFourController = {
+    init: function () {
+        polishedView.init();
+        consoleView.init();
+        connectFourModel.initBattlefield();
+        this.prepareColumnChoice();
+        this.prepareRestartButton();
+    },
+
+
+
+
 //TODO: Add EventListeners, to forward the user inputs to the model.
+
+    prepareColumnChoice: function () {
+        let buttonSpace = document.getElementById("column-buttons");
+
+        buttonSpace.addEventListener("click", function (event) {
+            if (event.target.className === "column-button") {
+                let column = event.target.getAttribute("data-column");
+                column = Number(column);
+                connectFourModel.insertStone(column);
+            }
+        });
+    },
+
+    prepareRestartButton: function () {
+        let restartButton = document.getElementById("restart-button");
+        restartButton.addEventListener("click", function () {
+            connectFourModel.initBattlefield();
+        });
+    }
+
+};
+
+connectFourController.init();
